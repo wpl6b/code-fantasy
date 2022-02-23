@@ -1,11 +1,10 @@
 import javax.swing.*;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class main {
     public static void main(String[] args) {
         System.out.println("  aa  ");
+        repeatedSubstringPattern("abac");
     }
     public void reverseString(char[] s) {
         int h = 0, t = s.length - 1;
@@ -50,11 +49,11 @@ public class main {
 
     //熟悉api
     public String reverseWords(String s) {
+        String[] words = s.trim().split("\\s+");
+        List<String> list = Arrays.asList(words);
+        Collections.reverse(list);
+        return String.join(" ", list);
 
-
-        char[] res = new char[s.length()];
-
-        return String.valueOf(res);
     }
 
     public String reverseLeftWords(String s, int n) {
@@ -105,6 +104,30 @@ public class main {
             }else {
                 cn = next[cn];
             }
+        }
+
+        return next;
+    }
+
+    //kmp未AC
+    public static boolean repeatedSubstringPattern(String s) {
+        int[] next = next(s.toCharArray());
+        int len = s.length();
+
+        return len % (len - (next[len - 1] + 1)) == 0;
+    }
+
+    public static int[] next(char[] str){
+        if(str.length == 1) return new int[] {-1};
+        int[] next = new int[str.length];
+        next[0] = -1;
+        next[1] = 0;
+        int i = 2;
+        int cn = 0;
+        while (i < str.length){
+            if(str[i-1] == str[cn])     next[i++] = ++cn;
+            else if(next[cn] != -1)     cn = next[cn];
+            else                        next[i++] = 0;
         }
 
         return next;

@@ -625,6 +625,8 @@ public class binary {
     public static int fun2(int l, int r){
         return l + r + 1 >> 1;
     }
+
+
 }
 
 
