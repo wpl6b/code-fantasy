@@ -323,7 +323,7 @@ public class DPquestion {
             res.add(before);
             return;
         }
-
+ArrayList
         if (nums[i] == 0) return;
 
         if (nums[i] == 1) {
