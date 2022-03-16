@@ -10,53 +10,14 @@ import java.util.*;
 public class DPquestion {
     public static void main(String[] args) {
 
-//        sub("abc");
-//        hanoi("左", "右", "中", 3);
-//        System.out.println("a" + ch + "b");
-//        sub("abc");
-//        permutation("aba");
-//        permute(new int[]{1,2,3});
-
-//        System.out.println(maxScore(new int[]{53,14,91,35,51,9,80,27,6,15,77,86,34,62,55,45,91,45,23,75,66,42,62,13,34,18,89,67,93,83,100,14,92,73,48,2,47,93,99,100,88,84,48}, 43));
-//        System.out.println(maxScore(new int[]{1,79,80,1,1,1,200,1}, 3));
-//        Stack<Integer> st = new Stack<>();
-//        st.add(3);
-//        st.add(2);
-//        st.add(1);
-//        reverseStack(st);
-//        System.out.println(st.pop());
-//        System.out.println(st.pop());
-//        System.out.println(st.pop());
-//        System.out.println((char)('A' + 25));
-//        System.out.println(nums2Alphabet(new int[]{1,2,3}));
-//        System.out.println(beibao(new int[]{1,2,3,4}, new int[]{2,4,4,5}, 5));
-//        System.out.println(queen(8));
-//        System.out.println(queenNew(8));
-//        System.out.println(robot(10, 1, 3, 10));
-//        System.out.println(robotSearch(10, 1, 3, 10));
-//        System.out.println(robotDP(10, 1, 3, 10));
-//        System.out.println(canJump(new int[]{2,0,0}));
-//        System.out.println(coinNum(new int[]{2, 3, 5, 7, 2}, 10));
-//        System.out.println(coinNumSearch(new int[]{2, 3, 5, 7, 2}, 10));
-//        System.out.println(coinNumDP(new int[]{2, 3, 5, 7, 2}, 10));
-//        System.out.println(coinChange(new int[]{1,2,5}, 11));
-//        System.out.println(coinChange(new int[]{2}, 3));
-//        System.out.println(coinChangeSearch(new int[]{1,2,5}, 11));
-//        System.out.println(coinChangeSearch(new int[]{2}, 3));
-
-//        System.out.println(coinChangeDP(new int[]{1,2,5}, 11));
-//        System.out.println(coinChangeDP(new int[]{2}, 3));
-//
-//        System.out.println(boyi(new int[]{3, 100, 4, 50}));
-//        System.out.println(boyiDP(new int[]{3, 100, 4, 50}));
-
-//        System.out.println(horseK(8,8, 10));
-//        System.out.println(horseDP(8,8, 10));
-//        System.out.println(knightProbability(3, 2, 0, 0));
-//        System.out.println(knightProbabilityDP(3, 2, 0, 0));
-        System.out.println(coinWay(new int[]{3,5,10,1}, 1000));
-        System.out.println(coinWayDP(new int[]{3,5,10,1}, 1000));
-
+        DPquestion main = new DPquestion();
+//        System.out.println(main.abBoyi(new int[]{1,2,100,4}));
+//        System.out.println(main.abBoyiDP(new int[]{1,2,100,4}));
+//        System.out.println(main.horseJump(7,7,10));
+//        System.out.println(main.horseJumpDP(7, 7, 10));
+//        System.out.println(main.knightProbability1(8, 30, 6, 4));
+        System.out.println(main.knightProbabilityDP(8, 30, 6, 4));
+        System.out.println(main.knightProbabilityDP1(8, 30, 6, 4));
     }
 
 
@@ -198,25 +159,25 @@ public class DPquestion {
 
     }
 
-    /**
-     * 3、先后手游戏
-     *
-     * @param arr
-     * @return
-     */
-    public static int boyi(int[] arr) {
-        return Math.max(f(arr, 0, arr.length - 1), s(arr, 0, arr.length - 1));
-    }
-
-    public static int f(int[] arr, int l, int r) {
-        if (l == r) return arr[l];
-        return Math.max(arr[l] + s(arr, l + 1, r), arr[r] + s(arr, l, r - 1));
-    }
-
-    public static int s(int[] arr, int l, int r) {
-        if (l == r) return 0;
-        return Math.min(f(arr, l + 1, r), f(arr, l, r - 1));
-    }
+//    /**
+//     * 3、先后手游戏
+//     *
+//     * @param arr
+//     * @return
+//     */
+//    public static int boyi(int[] arr) {
+//        return Math.max(f(arr, 0, arr.length - 1), s(arr, 0, arr.length - 1));
+//    }
+//
+//    public static int f(int[] arr, int l, int r) {
+//        if (l == r) return arr[l];
+//        return Math.max(arr[l] + s(arr, l + 1, r), arr[r] + s(arr, l, r - 1));
+//    }
+//
+//    public static int s(int[] arr, int l, int r) {
+//        if (l == r) return 0;
+//        return Math.min(f(arr, l + 1, r), f(arr, l, r - 1));
+//    }
 
     public static int boyiDP(int[] arr) {
         int[][] dpf = new int[arr.length][arr.length];
@@ -323,7 +284,7 @@ public class DPquestion {
             res.add(before);
             return;
         }
-ArrayList
+
         if (nums[i] == 0) return;
 
         if (nums[i] == 1) {
@@ -578,7 +539,7 @@ ArrayList
      * @param target
      * @return
      */
-    public static int coinKind(int[] coins, int target) {
+        public static int coinKind(int[] coins, int target) {
         return selectCoinKind(coins, target, 0);
     }
 
@@ -1003,8 +964,8 @@ ArrayList
 //                for (int zhang = 0; zhang <= col / coins[row]; zhang++) {
 //                    dp[row][col] += dp[row + 1][col - zhang*coins[row]];
 //                }
-                if(col - coins[row] >= 0)
-                dp[row][col] = dp[row][col - coins[row]] + dp[row + 1][col];
+                if (col - coins[row] >= 0)
+                    dp[row][col] = dp[row][col - coins[row]] + dp[row + 1][col];
                 else dp[row][col] = dp[row + 1][col];
             }
         }
@@ -1013,6 +974,230 @@ ArrayList
     }
 
 
+    ///--------------------------------------复习 P16--------------------------------------
+    //限一张 总的方法数 回溯思想  不好写DP
+//    int kind;
+//    public  int minCoins1(int[] arr, int aim) {
+//        backTrackingOne(arr, aim, 0);
+//        return kind;
+//    }
+//
+//    public void backTrackingOne(int[]arr, int aim, int index){
+//        if(aim == 0){
+//            kind ++;
+//            return;
+//        }
+//        for (int i = index; i < arr.length; i++) {
+//            backTrackingOne(arr, aim - arr[i], i + 1);
+//        }
+//    }
+
+//    //限一张 总的方法数 暴力递归 好写DP
+//    public int minCoins1(int[] arr, int aim) {
+//        return  processOne(arr, aim, 0);
+//    }
+//
+//    public int processOne(int[] arr, int aim, int index){
+//        if(index == arr.length)  return aim == 0 ? 1 : 0;
+//        return processOne(arr, aim - arr[index], index + 1) + processOne(arr, aim, index + 1);
+//    }
+
+    //限一张 最少硬币数
+    public  int minCoins1(int[] arr, int aim) {
+        if (arr == null || arr.length == 0 || aim < 0) {
+            return -1;
+        }
+        return processOneMin(arr, 0, aim);
+    }
+
+    public int processOneMin(int[] arr, int index, int aim){
+
+        if(index == arr.length) return aim == 0 ? 0 : -1;
+
+//  错误写法      return Math.min(1 + processOneMin(arr, index + 1, aim - arr[index]), processOneMin(arr, index + 1, aim));
+        // return -1 会干扰返回结果 如何处理是细节
+
+        return 0; //为了不报错而已 忽略
+    }
+
+    //--------------------------------------复习 P17--------------------------------------
+    public int abBoyi(int[] arr) {
+        return Math.max(f(arr, 0, arr.length - 1), s(arr, 0, arr.length - 1));
+    }
+
+    public int f(int[] arr, int s, int e) {
+
+        if (s == e) return arr[s];
+
+        int res1 = arr[s] + s(arr, s + 1, e);
+        int res2 = arr[e] + s(arr, s, e - 1);
 
 
+        return Math.max(res1, res2);
+    }
+
+    public int s(int[] arr, int s, int e) {
+
+        if (s == e) return 0;
+
+        int res1 = f(arr, s + 1, e);
+        int res2 = f(arr, s, e - 1);
+
+        return Math.min(res1, res2);
+    }
+
+    public int abBoyiDP(int[] arr) {
+        int[][] f = new int[arr.length][arr.length];
+        int[][] s = new int[arr.length][arr.length];
+
+        for (int i = 0; i < arr.length; i++) {
+            f[i][i] = arr[i];
+//            s[i][i] = 0;
+        }
+
+
+        return Math.max(f[0][arr.length - 1], s[0][arr.length - 1]);
+    }
+
+    int res;
+
+    public int horseJump(int a, int b, int k) {
+        backTracking(a, b, k, 0, 0);
+        return res;
+    }
+
+    public void backTracking(int a, int b, int k, int i, int j) {
+
+        if (k == 0) {
+            if (i == a && j == b) res++;
+            return;
+        }
+        if (i < 0 || i > 8 || j < 0 || j > 9) return;
+
+        backTracking(a, b, k - 1, i - 1, j - 2);
+        backTracking(a, b, k - 1, i - 2, j - 1);
+        backTracking(a, b, k - 1, i + 1, j + 2);
+        backTracking(a, b, k - 1, i + 2, j + 1);
+        backTracking(a, b, k - 1, i - 1, j + 2);
+        backTracking(a, b, k - 1, i - 2, j + 1);
+        backTracking(a, b, k - 1, i + 1, j - 2);
+        backTracking(a, b, k - 1, i + 2, j - 1);
+
+    }
+
+    public int horseJumpDP(int a, int b, int k) {
+        int[][][] dp = new int[9][10][k + 1];
+        dp[0][0][0] = 1;
+        for (int step = 1; step <= k; step++) {
+            for (int i = 0; i < 9; i++) {
+                for (int j = 0; j < 10; j++) {
+                    dp[i][j][step] += i - 2 < 0 || j + 1 >= 10 ? 0 : dp[i - 2][j + 1][step - 1];
+                    dp[i][j][step] += i - 2 < 0 || j - 1 < 0 ? 0 : dp[i - 2][j - 1][step - 1];
+                    dp[i][j][step] += i + 2 >= 9 || j - 1 < 0 ? 0 : dp[i + 2][j - 1][step - 1];
+                    dp[i][j][step] += i + 2 >= 9 || j + 1 >= 10 ? 0 : dp[i + 2][j + 1][step - 1];
+                    dp[i][j][step] += i - 1 < 0 || j + 2 >= 10 ? 0 : dp[i - 1][j + 2][step - 1];
+                    dp[i][j][step] += i - 1 < 0 || j - 2 < 0 ? 0 : dp[i - 1][j - 2][step - 1];
+                    dp[i][j][step] += i + 1 >= 9 || j - 2 < 0 ? 0 : dp[i + 1][j - 2][step - 1];
+                    dp[i][j][step] += i + 1 >= 9 || j + 2 >= 10 ? 0 : dp[i + 1][j + 2][step - 1];
+                }
+            }
+        }
+
+        return dp[a][b][k];
+    }
+
+    double res1;
+
+    public double knightProbability1(int n, int k, int row, int column) {
+        backTracking1(n, k, row, column);
+        return res1 / Math.pow(8, k);
+    }
+
+    public void backTracking1(int n, int k, int i, int j) {
+        if (i < 0 || i >= n || j < 0 || j >= n) return;
+        if (k == 0) {
+            res1++;
+            return;
+        }
+
+        backTracking1(n, k - 1, i - 1, j - 2);
+        backTracking1(n, k - 1, i - 2, j - 1);
+        backTracking1(n, k - 1, i + 1, j + 2);
+        backTracking1(n, k - 1, i + 2, j + 1);
+        backTracking1(n, k - 1, i - 1, j + 2);
+        backTracking1(n, k - 1, i - 2, j + 1);
+        backTracking1(n, k - 1, i + 1, j - 2);
+        backTracking1(n, k - 1, i + 2, j - 1);
+
+    }
+
+    public double knightProbabilityDP1(int n, int k, int row, int column) {
+        double[][][] dp = new double[n][n][k+1];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                dp[i][j][0] = 1;
+            }
+        }
+        for (int step = 1; step <= k; step++) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    dp[i][j][step] += i - 2 < 0 || j + 1 >= n ? 0 : dp[i - 2][j + 1][step - 1];
+                    dp[i][j][step] += i - 2 < 0 || j - 1 < 0 ? 0 : dp[i - 2][j - 1][step - 1];
+                    dp[i][j][step] += i + 2 >= n || j - 1 < 0 ? 0 : dp[i + 2][j - 1][step - 1];
+                    dp[i][j][step] += i + 2 >= n || j + 1 >= n ? 0 : dp[i + 2][j + 1][step - 1];
+                    dp[i][j][step] += i - 1 < 0 || j + 2 >= n ? 0 : dp[i - 1][j + 2][step - 1];
+                    dp[i][j][step] += i - 1 < 0 || j - 2 < 0 ? 0 : dp[i - 1][j - 2][step - 1];
+                    dp[i][j][step] += i + 1 >= n || j - 2 < 0 ? 0 : dp[i + 1][j - 2][step - 1];
+                    dp[i][j][step] += i + 1 >= n || j + 2 >= n ? 0 : dp[i + 1][j + 2][step - 1];
+                }
+            }
+        }
+
+        return dp[row][column][k] / Math.pow(8, k);
+    }
+
+
+//    int min;   不限张 最少硬币数 回溯解法 不好DP           左神 没讲
+//    public int coinChangeMin(int[] coins, int amount) {
+//        min = -1;
+//        backTrackingMin(coins, amount, 0, 0, 0);
+//        return min;
+//    }
+//
+//    public void backTrackingMin(int[] coins, int amount, int index, int sum, int count){
+//        if(sum > amount)    return;
+//        if(sum == amount)   min = min == -1 ? count : Math.min(min, count);
+//        for (int i = index; i < coins.length; i++) {
+//            backTrackingMin(coins, amount, i,sum + coins[i], count + 1);
+//        }
+//    }
+
+
+    public int coinChangeMin(int[] coins, int amount) {
+        return processMin(coins, 0, amount);
+    }
+
+    public int processMin(int[] coins, int index, int amount){
+        
+        if(index == coins.length)   return amount == 0 ? 0 : -1;
+
+        for (int i = 0; i < ; i++) {
+            
+        }
+
+    }
+
+//    不限张 总的方法数 暴力递归 好写DP   leetcode 512
+//    public int coinChangeRe(int[] coins, int amount) {
+//        return processRe(coins, 0, amount);
+//    }
+//
+//    public int  processRe(int[] coins, int index, int amount){
+//        if(index == coins.length)   return amount == 0 ? 1 : 0;
+//        int count = 0;
+//        for (int i = 0; i * coins[index] <= amount; i++) {
+//            count += processRe(coins, index + 1, amount - i * coins[index]);
+//        }
+//        return count;
+//    }
 }
